@@ -1,0 +1,9 @@
+<odoo>
+    <!-- Main Menu -->
+    <menuitem id="menu_school_root" name="School" sequence="10"/>
+
+    <!-- Submenus -->
+    <menuitem id="menu_school_teacher" name="Teachers" parent="menu_school_root" action="action_school_teacher"/>
+    <menuitem id="menu_school_class" name="Classes" parent="menu_school_root" action="action_school_class"/>
+    <menuitem id="menu_school_student" name="Students" parent="menu_school_root" action="action_school_student"/>
+</odoo>

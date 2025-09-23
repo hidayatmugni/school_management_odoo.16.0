@@ -1,0 +1,25 @@
+<odoo>
+    <!-- ==========================
+         SECURITY GROUPS
+    =========================== -->
+
+    <record id="module_category_school_management" model="ir.module.category">
+        <field name="name">School Management</field>
+        <field name="description">Kategori untuk hak akses modul School Management.</field>
+        <field name="sequence">10</field>
+    </record>
+
+
+    <record id="group_school_manager" model="res.groups">
+        <field name="name">School Manager</field>
+        <field name="category_id" ref="school_management.module_category_school_management"/>
+        <field name="comment">Full access to all school management data.</field>
+    </record>
+
+    <record id="group_school_user" model="res.groups">
+        <field name="name">School User</field>
+        <field name="category_id" ref="school_management.module_category_school_management"/>
+        <field name="comment">Basic access to manage classes and students.</field>
+        <field name="implied_ids" eval="[(4, ref('group_school_manager'))]"/>
+    </record>
+</odoo>

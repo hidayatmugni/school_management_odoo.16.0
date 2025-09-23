@@ -1,0 +1,74 @@
+<odoo>
+    <!-- ==========================================
+         REPORT ACTION
+         ========================================== -->
+    <record id="action_report_teacher_students" model="ir.actions.report">
+        <field name="name">Daftar Guru dan Siswa</field>
+        <field name="model">school.teacher</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">school_management.report_teacher_students_template</field>
+        <field name="print_report_name">'Daftar_Guru_Siswa_' + object.name</field>
+        <field name="binding_model_id" ref="model_school_teacher"/>
+        <field name="binding_type">report</field>
+    </record>
+
+
+    <!-- ==========================================
+         QWEB TEMPLATE
+         ========================================== -->
+  <template id="report_teacher_students_template">
+    <t t-call="web.basic_layout">
+        <t t-set="doc" t-value="docs"/>
+        <div class="page">
+            <!-- Judul Report -->
+            <div class="text-center mb-4">
+                <h2 class="text-primary">Daftar Guru dan Siswa</h2>
+                <p class="text-muted">Laporan ini menampilkan guru, kelas, dan siswa yang diajar</p>
+            </div>
+
+            <!-- Loop Guru -->
+            <t t-foreach="doc" t-as="teacher">
+                <div class="mb-5">
+                    <h4 class="text-secondary">
+                        Guru: <span t-esc="teacher.name"/>
+                    </h4>
+                    <p>
+                        <strong>Email:</strong> <span t-esc="teacher.email or '-'"/> |
+                        <strong>Telepon:</strong> <span t-esc="teacher.phone or '-'"/>
+                    </p>
+
+                    <!-- Tabel Bootstrap -->
+                    <table class="table table-bordered table-sm">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Kelas</th>
+                                <th>Tipe</th>
+                                <th>Nama Siswa</th>
+                                <th>Tanggal Lahir</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="teacher.class_ids" t-as="kelas">
+                                <t t-foreach="kelas.student_ids" t-as="student">
+                                    <tr>
+                                        <td><span t-esc="kelas.name"/></td>
+                                        <td><span t-esc="kelas.code"/></td>
+                                        <td><span t-esc="student.name"/></td>
+                                        <td><span t-esc="student.dob"/></td>
+                                        <td>
+                                            <span t-esc="'Aktif' if student.active else 'Nonaktif'"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+                <hr class="my-4"/>
+            </t>
+        </div>
+    </t>
+</template>
+
+</odoo>

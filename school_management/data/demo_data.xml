@@ -1,0 +1,67 @@
+<odoo>
+    <data noupdate="1">
+
+        <record id="teacher_adi" model="school.teacher">
+            <field name="name">Bapak Adi Santoso</field>
+            <field name="address">Jl. Merdeka No. 10, Jakarta</field>
+            <field name="phone">081212345678</field>
+            <field name="email">adi.santoso@sekolah.com</field>
+        </record>
+
+        <record id="teacher_siti" model="school.teacher">
+            <field name="name">Ibu Siti Nurhayati</field>
+            <field name="address">Jl. Sudirman No. 25, Jakarta</field>
+            <field name="phone">085787654321</field>
+            <field name="email">siti.nur@sekolah.com</field>
+        </record>
+
+        <record id="class_10a" model="school.class">
+            <field name="name">Kelas 10A</field>
+            <field name="code">10A-2025</field>
+            <field name="teacher_id" ref="teacher_adi"/>
+            <field name="capacity">30</field>
+        </record>
+
+        <record id="class_11b" model="school.class">
+            <field name="name">Kelas 11B</field>
+            <field name="code">11B-2025</field>
+            <field name="teacher_id" ref="teacher_siti"/>
+            <field name="capacity">28</field>
+        </record>
+
+        <record id="student_budi" model="school.student">
+            <field name="name">Budi Hartono</field>
+            <field name="dob">2008-05-15</field>
+            <field name="class_id" ref="class_10a"/>
+            <field name="partner_id" ref="base.res_partner_12"/> 
+        </record>
+
+        <record id="student_rani" model="school.student">
+            <field name="name">Rani Indah</field>
+            <field name="dob">2008-09-22</field>
+            <field name="class_id" ref="class_10a"/>
+            <field name="partner_id" ref="base.res_partner_address_1"/>
+        </record>
+
+        <record id="student_joko" model="school.student">
+            <field name="name">Joko Susanto</field>
+            <field name="dob">2007-03-10</field>
+            <field name="class_id" ref="class_11b"/>
+            <field name="partner_id" ref="base.res_partner_3"/>
+        </record>
+
+        <record id="student_putri" model="school.student">
+            <field name="name">Putri Lestari</field>
+            <field name="dob">2007-07-07</field>
+            <field name="class_id" ref="class_11b"/>
+            <field name="partner_id" ref="base.res_partner_6"/>
+        </record>
+
+        <record id="product_monthly_tuition" model="product.product">
+            <field name="name">Biaya Sekolah Bulanan</field>
+            <field name="detailed_type">service</field>
+            <field name="list_price">500000</field>
+            <field name="taxes_id" eval="False"/> </record>
+        
+    </data>
+</odoo>
