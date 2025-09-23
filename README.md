@@ -23,13 +23,13 @@ Modul ini dibuat untuk mengelola data **Guru**, **Siswa**, dan **Kelas**, sekali
 school_management/
 │
 ├── controllers/
-│   └── api_controller.py      # Endpoint API GET guru & POST siswa
+│   └── api.py      # Endpoint API GET guru & POST siswa
 │
 ├── models/
 │   ├── teacher.py             # Model Guru
 │   ├── student.py             # Model Siswa
-│   ├── class.py               # Model Kelas
-│   ├── account_invoice.py     # Inherit account.move
+│   ├── class_room.py               # Model Kelas
+│   ├── account_extension.py     # Inherit account.move
 │   └── student_invoice_scheduler.py  # Scheduler logic
 │
 ├── reports/
@@ -39,14 +39,16 @@ school_management/
 ├── views/
 │   ├── teacher_views.xml
 │   ├── student_views.xml
+│   ├── menu_actions.xml
 │   ├── class_views.xml
 │   └── account_move_views.xml
 │
 ├── data/
-│   ├── product_data.xml       # Product default untuk biaya sekolah
+│   ├── demo_data.xml       # Product default untuk biaya sekolah
 │   └── ir_cron.xml            # Scheduler untuk tagihan bulanan
 │
 ├── security/
+│   ├── ir.model.access.csv
 │   └── security.xml           # Groups dan hak akses
 │
 ├── __manifest__.py
