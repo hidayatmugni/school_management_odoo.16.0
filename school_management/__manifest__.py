@@ -32,7 +32,7 @@
     ],
     'demo': [
         # 'data/demo_data.xml',
-        # data demo saya belum berhasil pak, ga sempat perbaiki 
+        # data demo saya belum berhasil pak, ga sempat diperbaiki dikarenakan masalah waktu
         # Terima kasih pak atas kesempatan nya ...
     ],
     'installable': True,
